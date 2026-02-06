@@ -6,6 +6,14 @@ An interactive Valentine's Day website with animated elements and playful intera
 
 Visit the live website at: **https://blankayn.github.io/Valentin150/**
 
+## 📸 Screenshots
+
+### Main Page
+![Main Page](https://github.com/user-attachments/assets/b35d2ca4-6dfc-4065-91f3-b8965600387a)
+
+### Letter Page
+![Letter Page](https://github.com/user-attachments/assets/68337784-41bb-41f0-8eb6-da70e55a292b)
+
 ## 📋 Features
 
 - Interactive "YES/NO" button game
@@ -19,12 +27,18 @@ Visit the live website at: **https://blankayn.github.io/Valentin150/**
 
 To publish this repository on GitHub Pages:
 
-1. Go to your repository on GitHub
-2. Click on **Settings**
-3. Scroll down to **Pages** section (in the left sidebar)
-4. Under **Source**, select the branch you want to deploy (e.g., `main` or `copilot/publish-repo-to-hosting`)
-5. Click **Save**
-6. Your site will be published at `https://blankayn.github.io/Valentin150/`
+1. Go to your repository on GitHub: `https://github.com/blankayn/Valentin150`
+2. Click on **Settings** (top navigation bar)
+3. In the left sidebar, click on **Pages** (under "Code and automation" section)
+4. Under **Build and deployment**:
+   - **Source**: Select "Deploy from a branch"
+   - **Branch**: Select the branch (e.g., `main` or `copilot/publish-repo-to-hosting`) and `/ (root)` folder
+   - Click **Save**
+5. Wait a few minutes for deployment to complete
+6. Your site will be published at: `https://blankayn.github.io/Valentin150/`
+7. A green checkmark will appear once the site is live
+
+**Note**: The repository now includes `index.html` as the main entry point, which GitHub Pages will automatically use as the homepage.
 
 ## 📁 Project Structure
 
