@@ -164,9 +164,9 @@
         if (charIndex < fullText.length) {
             const char = fullText.charAt(charIndex);
             if (char === '\n') {
-                lyricElement.innerHTML += '<br>';
+                lyricElement.appendChild(document.createElement('br'));
             } else {
-                lyricElement.innerHTML += char;
+                lyricElement.appendChild(document.createTextNode(char));
             }
             charIndex++;
             setTimeout(revealText, typingSpeed);
