@@ -7,7 +7,13 @@
 </head>
 <body>
     <div class="image-container">
-        <img src="hug2.gif" alt="hug">
+        <div class="slideshow">
+            <img src="5b09552a-f09d-4f90-a636-5259bfc8c09d.jpg" class="slide active" alt="memory">
+            <img src="802cb6cf-9529-433c-8b18-260f19364bc3.jpg" class="slide" alt="memory">
+            <img src="a906a351-9158-45c7-9447-529cc8932355.jpg" class="slide" alt="memory">
+            <img src="bae6b31c-0d0a-48e5-9d46-b6213afb7227.jpg" class="slide" alt="memory">
+            <img src="d717083e-443b-4632-bbf1-dbe50caa63d9.jpg" class="slide" alt="memory">
+        </div>
     </div>
     <br>
     <div class="paragraph">
@@ -38,22 +44,32 @@
         border-radius: 15px;
         box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
         animation: slideInDown 0.8s ease-out;
+        position: relative;
+        overflow: hidden;
     }
-    .image-container img {
-        max-width: 300px;
+    .slideshow {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        height: 400px;
+        margin: 0 auto;
+    }
+    .slideshow img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
         height: auto;
+        object-fit: contain;
         border-radius: 10px;
-        animation: sleep 3s ease-in-out infinite;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
     }
-    @keyframes sleep {
-        0%, 100% {
-            opacity: 1;
-            transform: translateY(0px);
-        }
-        50% {
-            opacity: 0.7;
-            transform: translateY(5px);
-        }
+    .slideshow img.active {
+        opacity: 1;
     }
     .paragraph {
         justify-content: center;
@@ -122,18 +138,22 @@
     }
 </style>
 <script>
+    // Slideshow functionality
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    
+    function showNextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % totalSlides;
+        slides[currentSlide].classList.add('active');
+    }
+    
+    // Change slide every 3 seconds
+    setInterval(showNextSlide, 3000);
+    
     // Text reveal animation (lyrics-like effect)
-    const fullText = `What: Valentine's Date 💘
-When: February 15, 2026 | 2:00 PM – 9:00 PM
-Where: Somewhere familiar, but a little more special ✨
-Who: My beautiful baby, Rona 🤍
-
-To my baby—who is wonderful, cute, loving, caring, and the most beautiful girl I know—
-I'm inviting you on a Valentine's date.
-
-No rush, no pressure—just us.
-Laughing, talking, holding hands, stealing glances, and making memories we'll smile about later.
-Let me take care of you, spoil you a little, and show you how much you mean to me—from 2 PM until magsawa ta kaka-kiss hahaha`;
+    const fullText = `What: Valentine's Date 💘\nWhen: February 15, 2026 | 2:00 PM – 9:00 PM\nWhere: Somewhere familiar, but a little more special ✨\nWho: My beautiful baby, Rona 🤍\n\nTo my baby—who is wonderful, cute, loving, caring, and the most beautiful girl I know—\nI'm inviting you on a Valentine's date.\n\nNo rush, no pressure—just us.\nLaughing, talking, holding hands, stealing glances, and making memories we'll smile about later.\nLet me take care of you, spoil you a little, and show you how much you mean to me—from 2 PM until magsawa ta kaka-kiss hahaha`;    
     
     const lyricElement = document.getElementById('lyricText');
     let charIndex = 0;
